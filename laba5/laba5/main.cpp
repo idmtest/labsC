@@ -44,7 +44,7 @@ int main()
 	int a = 11;
 	int b = 5;
 
-	myTest foo = NULL;
+	myTest foo = NULL; 
 	
 	foo = Sum;
 	printf("%d\n",Sum(a,b));
@@ -55,8 +55,8 @@ int main()
 
 	free(ppAddObj[0]);
 	free(ppAddObj[1]);
-
 	_CrtDumpMemoryLeaks();
+
 	_getch();
 	return(0);
 

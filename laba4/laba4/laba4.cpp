@@ -36,7 +36,7 @@ void printArr(int * a, int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		printf("&%d myArr[%d]=%d\n", (a+i), i, *(a + i));
+		printf("&%p myArr[%d]=%d\n", (a+i), i, *(a + i));
 
 	}
 }
@@ -46,16 +46,24 @@ void printArr1(int a[5], int count)
 	for (int i = 0; i < count; i++)
 	{
 		//printf("&%d myArr[%d]=%d\n", (a + i), i, *(a + i));
-		printf("a[%d]=%d", i, a[i]);
+		printf("a[%d]=%d\n", i, a[i]);
 	}
 }
 
 int main()
 {
-	
 	int var = 20;
-	int* pvar = &var;
-	int** ppvar = &pvar;
+	int* pvar = &var; // pointer
+	int** ppvar = &pvar; // pointer to pointer
+
+	int* p1 = (int*)malloc(4 * sizeof(int)); // mem for
+	free(p1);
+	p1[0] = 10;
+	p1[1] = 15;
+	p1[100] = 100;
+
+
+	printf("var=%d\n", sizeof(pvar));
 
 	printf("var=%d\n", var);
 	printf("&var = %d\n", &var);
@@ -65,7 +73,7 @@ int main()
 	printf("ppvar = %d\n", ppvar);
 	printf("*ppvar = %d\n", *ppvar);
 	printf("**ppvar = %d\n", **ppvar);
-	printf("&ppvar = %d\n", &ppvar);
+	printf("&ppvar = %d\n\n", &ppvar);
 
 	printf("var=%d\n", var);
 	var = 30;
@@ -73,36 +81,52 @@ int main()
 	*pvar = 40;
 	printf("var=%d\n", var);
 	**ppvar = 50;
-	printf("var=%d\n", var);
+	printf("var=%d\n\n", var);
 
-	//myEndProg();
+	int mass[5] = {1,2,3,4,5};
+	int var2 = *mass;
+	int var1 = *(mass + 1);
+	int* p = mass;
+	
+	p++;
+	printf("p=%p\t*p++=%d\n",p, *p);
+	p=p+2;
+	printf("p+2=%p\t*p=%d\n",p, *p);
+
+	int test = 20;
+	int* const pnew = &test;
+	//pnew++; //error
+	*pnew = 50; //ok
+
+	const int* pnew1 = &test;
+	pnew1++; //ok
+	//*pnew1 = 60; //error
+
+	const int* const pnew2 = &test;
+	//pnew2++; //ok
+	//*pnew2 = 60; //error
+
+	for (int i = 0; i < 5; i++)
+		*(mass + i) = *(mass + i) + 5;
+
+	printArr(mass, 5);
+	printArr1(mass, 5);
+
+	void* pvar1 = NULL;
+	pvar1 = pvar;
+
+	myEndProg();
 	
 	
-	/*int a = 3;
-	int b = 10;
+	int count = 0;
+	scanf("%d", &count);
 
-	switch (a)
-	{
-	case 1:		
-		printf("%d", a+b);
-		break;
-	case 2: 
-		printf("%d", a+1);
-		break;
-	default:
-	printf("default");
-	}
-	*/
-	//myEndProg();
-
-	//int count = 0;
-	//scanf("%d", &count);
-
-	//int* myArrBig = (int*)malloc(count * sizeof(int));
-	//_getch();
-	//free(myArrBig);
+	int* myArrBig = (int*)malloc(count * sizeof(int));
+	_getch();
+	free(myArrBig);
 	
-	//myEndProg();
+	myEndProg();
+	
 	int myArr[] = { 1,2,3,4,5 };
 	int myArr1[] = { 1,2,3,4,5,6,7,8,9,10 };
 

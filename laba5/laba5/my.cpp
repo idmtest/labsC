@@ -9,7 +9,7 @@ int myEndProg()
 
 Rect* CreateRect()
 {
-	int a=10, b=5;
+	int a=100, b=50;
 
 	//printf("Input side a=");
 	//scanf("%d",&a);
@@ -42,5 +42,15 @@ Cyrcle* CreateCyrcle()
 	p->rad = 10;
 
 	return p;
+}
+
+int Sum(int a, int b)
+{
+	return a + b;
+}
+
+int Div(int a, int b)
+{
+	return a - b;
 }
 

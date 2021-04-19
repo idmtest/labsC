@@ -16,11 +16,28 @@ int mySumm(int* varSumm);
 int factorial(int n);
 void countOut(int count);
 
+int myDivSimple(int a, int b)
+{
+  int c = a - b;
+  return c;
+}
+
 int main()
 {
   setlocale(LC_ALL, "Rus");
   SetConsoleCP(1251);
   SetConsoleOutputCP(1251);
+
+  //char s;
+  int s;
+  do {
+    printf("To stop press .\n ->");
+    //scanf("%c ", &s);
+    s = _getch();
+    printf("%c", (char)s);
+    printf("\nThe symbol is %c, symbol's code is %d\n", s, s);
+  } while ((char)s != '.');
+
   char name[20];
   scanf("%s", &name);
   printf("\n%s", name);
@@ -32,6 +49,17 @@ int main()
   puts(str);
   int var1 = 0;
   int var2 = 5;
+
+  int var = 0;
+  while (1)
+  {
+    gets_s(str);
+    printf("strlen = %d \n", strlen(str));
+    var = _getch();
+    if (var == 101)
+      break;
+  }
+
   //mySumm(summ);
   /*printf("Summ from myFunc:%d\n", mySumm(&summ));
   printf("Summ :%d\n", summ);*/
@@ -80,6 +108,10 @@ int main()
   scanf("%d %d", &var1, &var2);
 
   printf("var1=%d\tvar2=%d\n", var1, var2);
+
+  int div = myDivSimple(var1, var2);
+  printf("div = %d\n", div);
+  printf("div = %d\n", myDivSimple(var2, var1));
 
   if (var1 > var2)
   {

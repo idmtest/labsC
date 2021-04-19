@@ -8,10 +8,10 @@
 
 typedef long double my;
 
-typedef enum _Figures
+typedef enum  _Figures
 {
 	none = 0,
-	rect = 1,
+	rect,
 	triag,
 	cyrcle
 } Figures;
@@ -41,7 +41,10 @@ typedef struct _myStruct {
 	int b[30];
 } myStr, *myP;
 
+typedef int (*myTest)(int, int);
 
 int myEndProg();
 Rect* CreateRect();
 Cyrcle* CreateCyrcle();
+int Sum(int a, int b);
+int Div(int a, int b);

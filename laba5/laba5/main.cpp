@@ -1,29 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <locale.h>
 #include "test.h"
 #include <iostream>
 #include <stdlib.h> 
 #include <crtdbg.h>
 
-void printInsideObj(void* pobj)
-{
-	Figures kind = *((Figures*)pobj);
-	if (kind == rect)
-	{
-		printf("x=%d \t y=%d\n", ((Rect*)(pobj))->x, ((Rect*)(pobj))->y);
-	}
-	else if (kind == cyrcle)
-	{
-		printf("rad=%d \n", ((Cyrcle*)(pobj))->rad);
-	}
-	else
-		printf("\nNone\n");
-}
-
 int main()
 {
-	Rect my;
-	my.x = 15;
-	my.y = 20;
+	Rect mystruct;
+	mystruct.x = 10;
+	mystruct.y = 20;
 
 	printf("%d\n", sizeof(Rect));
 	printf("%d\n", sizeof(Cyrcle));
@@ -31,9 +17,11 @@ int main()
 	void* ppAddObj[] = {NULL, NULL, NULL};
 	
 	ppAddObj[0] = CreateRect();
-	ppAddObj[1] = CreateCyrcle();  
-	printInsideObj(ppAddObj[0]);
-	printInsideObj(ppAddObj[1]);
+	ppAddObj[1] = CreateCyrcle();
+
+	
+	printInsideObj(ppAddObj);
+	printInsideObj(ppAddObj);
 
 	//int var = ((Rect*)(ppAddObj[0]))->x;
 	//int var1 = ((Rect*)(ppAddObj[1]))->rad; // wrong data

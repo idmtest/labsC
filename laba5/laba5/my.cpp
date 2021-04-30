@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include "test.h"
 
 int myEndProg()
@@ -18,8 +17,8 @@ Rect* CreateRect()
 
 	//if (a < 0 || b < 0)
 	//	return NULL;
-
-	Rect* p = (Rect*)malloc(sizeof(Rect));
+	Rect* p = NULL;
+	p = (Rect*)malloc(sizeof(Rect));
 	if (p == NULL)
 		return NULL;
 
@@ -54,3 +53,20 @@ int Div(int a, int b)
 	return a - b;
 }
 
+void printInsideObj(void* pobj[])
+{
+
+	Figures kind = *((Figures*)pobj[0]);
+	pobj++;
+
+	if (kind == rect)
+	{
+		printf("x=%d \t y=%d\n", ((Rect*)(pobj))->x, ((Rect*)(pobj))->y);
+	}
+	else if (kind == cyrcle)
+	{
+		printf("rad=%d \n", ((Cyrcle*)(pobj))->rad);
+	}
+	else
+		printf("\nNone\n");
+}

@@ -1,4 +1,5 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include <conio.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -39,6 +40,7 @@ typedef struct _myStruct {
 	int a;
 	int s;
 	int b[30];
+	float f;
 } myStr, *myP;
 
 typedef int (*myTest)(int, int);
@@ -48,3 +50,4 @@ Rect* CreateRect();
 Cyrcle* CreateCyrcle();
 int Sum(int a, int b);
 int Div(int a, int b);
+void printInsideObj(void* pobj[]);

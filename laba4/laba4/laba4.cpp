@@ -56,6 +56,7 @@ int main()
 	int* pvar = &var; // pointer
 	int** ppvar = &pvar; // pointer to pointer
 
+
 	int* p1 = (int*)malloc(4 * sizeof(int)); // mem for
 	free(p1);
 	p1[0] = 10;
@@ -114,6 +115,12 @@ int main()
 
 	void* pvar1 = NULL;
 	pvar1 = pvar;
+
+	int testvoid = 6000;
+	void* ptestvoid = &testvoid;
+
+	printf("int* (ptest)=%d\n", *(int*)ptestvoid);
+	printf("char* (ptest)=%d\n", *(char*)ptestvoid);
 
 	myEndProg();
 	
